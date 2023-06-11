@@ -12,7 +12,7 @@ pipeline {
                 sh "docker build -t hello:v1 ."
             }
         }
-        state('Scan the image'){
+        stage('Scan the image'){
           steps {
               sh 'trivy image --no-progress --exit-code 1 --severity HIGH,CRITICAL hello:v1'
             }
